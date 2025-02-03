@@ -2,12 +2,10 @@ package com.bankinter.services.sso.customer_products_and_services.ambar.domain.e
 
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.enums.PropertyStatus;
 import jakarta.annotation.Nullable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "card")
 public class Card {
 
     @Id

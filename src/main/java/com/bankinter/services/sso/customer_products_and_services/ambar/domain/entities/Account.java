@@ -27,12 +27,15 @@ public class Account {
 
     private String nib;
 
+    @Enumerated(EnumType.STRING)
     private AccountStatus status;
 
     private Long subProductId;
 
+    @Embedded
     private AccountIdentification identification;
 
+    @Enumerated(EnumType.STRING)
     private AccountActivityStatus accountActivityStatus;
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
@@ -41,8 +44,8 @@ public class Account {
 
     private boolean isCurrent;
 
-    //make it nullable
     @Nullable
+    @Enumerated(EnumType.STRING)
     private PropertyStatus propertyStatus;
 
     protected Account(){}

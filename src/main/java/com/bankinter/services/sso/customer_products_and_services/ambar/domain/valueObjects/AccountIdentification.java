@@ -1,9 +1,15 @@
 package com.bankinter.services.sso.customer_products_and_services.ambar.domain.valueObjects;
 
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.Embedded;
+
+@Embeddable
 public class AccountIdentification {
     private String iban;
     private String bban;
     private String bic;
+
+    protected AccountIdentification(){}
 
     public AccountIdentification(String iban, String bban, String bic) {
         this.iban = iban;

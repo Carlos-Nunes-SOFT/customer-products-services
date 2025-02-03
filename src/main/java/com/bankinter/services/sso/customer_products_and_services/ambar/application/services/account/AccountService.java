@@ -27,6 +27,7 @@ public class AccountService {
 
     public AccountDetailsDto createAccount(CreateAccountCommand request){
         //Add logger info
+        //Probably overcomplicated, maybe use builder annotation on dto? 
         CreateAccountDto accountDto = this.accountDtoBuilder
                 .newAccountDto(request.cardId, request.baseCurrency, request.type, request.nib, request.status,
                                 request.subProductId, request.identification, request.accountActivityStatus,
@@ -34,9 +35,10 @@ public class AccountService {
                 .build();
 
         Account entity = accountMapper.toEntity(accountDto);
-        AccountDetailsDto accountDetailsDto = accountMapper.toDetailedDto(entity);
 
         this.accountRepository.save(entity);
+
+        AccountDetailsDto accountDetailsDto = accountMapper.toDetailedDto(entity);
 
         return accountDetailsDto;
     }

@@ -2,14 +2,12 @@ package com.bankinter.services.sso.customer_products_and_services.ambar.domain.e
 
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.enums.balance.BalanceIndicator;
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.enums.balance.BalanceType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
 @Entity
+@Table(name = "balance")
 public class Balance {
 
     @Id
