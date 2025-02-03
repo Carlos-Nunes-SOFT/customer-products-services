@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: customer-products-and-services
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
+    hibernate:
+      dll-auto: update
+      format_sql: true
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
