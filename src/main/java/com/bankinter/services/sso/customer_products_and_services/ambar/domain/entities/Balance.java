@@ -16,8 +16,10 @@ public class Balance {
 
     private Long accountId; //foreign key
 
+    @Enumerated(EnumType.STRING)
     private BalanceType type;
 
+    @Enumerated(EnumType.STRING)
     private BalanceIndicator creditDebitIndicator;
 
     private String calculationDate;

@@ -13,13 +13,14 @@ import java.util.List;
 
 @Entity
 @Table(name = "account")
+//@Builder
 public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long cardId; //Add card reference
+    private Long customerId; //Add customer reference
 
     private String baseCurrency;
 
@@ -39,8 +40,12 @@ public class Account {
     private AccountActivityStatus accountActivityStatus;
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
-    @Transient //not stored on this database
+    @Transient //not stored in this database
     private final List<Balance> balances = new ArrayList<>();
+
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    @Transient //not stored in this database
+    private final List<Card> cards = new ArrayList<>();
 
     private boolean isCurrent;
 
@@ -50,10 +55,10 @@ public class Account {
 
     protected Account(){}
 
-    public Account(Long cardId, String baseCurrency, String type, String nib, AccountStatus status,
+    public Account(Long customerId, String baseCurrency, String type, String nib, AccountStatus status,
                    Long subProductId, AccountIdentification identification,
                    AccountActivityStatus accountActivityStatus, boolean isCurrent, PropertyStatus propertyStatus) {
-        this.cardId = cardId;
+        this.customerId = customerId;
         this.baseCurrency = baseCurrency;
         this.type = type;
         this.nib = nib;
@@ -78,8 +83,29 @@ public class Account {
         this.balances.remove(balance);
     }
 
-    public Long getCardId() {
-        return cardId;
+    public void addCard(Card card){
+        if(card == null)
+            throw new IllegalArgumentException("Card cannot be null.");
+        this.cards.add(card);
+        card.setAccountId(this.id);
+    }
+
+    public void removeCard(Card card){
+        if(card==null)
+            throw new IllegalArgumentException("Card cannot be null.");
+        this.cards.remove(card);
+    }
+
+    public List<Card> getCards() {
+        return cards;
+    }
+
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
+    }
+
+    public Long getCustomerId() {
+        return customerId;
     }
 
     public Long getId() {
@@ -130,8 +156,8 @@ public class Account {
         this.status = status;
     }
 
-    public void setCardId(Long cardId) {
-        this.cardId = cardId;
+    public void setCardId(Long customerId) {
+        this.customerId = customerId;
     }
 
     public void setId(Long id) {

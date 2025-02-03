@@ -12,7 +12,7 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //private Long accountId; //foreign key
+    private Long accountId; //foreign key
 
     private String accountNumber;
 
@@ -26,13 +26,14 @@ public class Card {
 
     private Long subProductId;
 
-    //make it nullable
     @Nullable
+    @Enumerated(EnumType.STRING)
     private PropertyStatus propertyStatus;
 
     protected Card(){}
 
-    public Card(PropertyStatus propertyStatus, Long subProductId, Long productId, String nameInCard, String cardType, String cardNumber, String accountNumber) {
+    public Card(Long accountId, PropertyStatus propertyStatus, Long subProductId, Long productId, String nameInCard, String cardType, String cardNumber, String accountNumber) {
+        this.accountId = accountId;
         this.propertyStatus = propertyStatus;
         this.subProductId = subProductId;
         this.productId = productId;
@@ -46,6 +47,13 @@ public class Card {
         return id;
     }
 
+    public Long getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(Long accountId) {
+        this.accountId = accountId;
+    }
 
     @Nullable
     public PropertyStatus getPropertyStatus() {
