@@ -6,9 +6,7 @@ import com.bankinter.services.sso.customer_products_and_services.ambar.domain.en
 import java.math.BigDecimal;
 
 public class BalanceDetailsDto {
-    private Long id;
-
-    //private Long accountId; //foreign key
+    private String id;
 
     private BalanceType type;
 
@@ -18,7 +16,7 @@ public class BalanceDetailsDto {
 
     private BigDecimal balanceAmount;
 
-    public BalanceDetailsDto(Long id, BalanceType type, BalanceIndicator creditDebitIndicator,
+    public BalanceDetailsDto(String id, BalanceType type, BalanceIndicator creditDebitIndicator,
                              String calculationDate, BigDecimal balanceAmount) {
         this.id = id;
         this.type = type;
@@ -27,7 +25,7 @@ public class BalanceDetailsDto {
         this.balanceAmount = balanceAmount;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

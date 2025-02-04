@@ -8,9 +8,9 @@ import com.bankinter.services.sso.customer_products_and_services.ambar.domain.va
 import java.util.List;
 
 public class AccountDetailsDto {
-    private Long id;
+    private String id;
 
-    private Long customerId;
+    private String customerId;
 
     private String baseCurrency;
 
@@ -20,7 +20,7 @@ public class AccountDetailsDto {
 
     private AccountStatus status;
 
-    private Long subProductId;
+    private String subProductId;
 
     private AccountIdentification identification;
 
@@ -34,7 +34,7 @@ public class AccountDetailsDto {
 
     private PropertyStatus propertyStatus;
 
-    public AccountDetailsDto(Long id, Long customerId, String baseCurrency, String type, String nib, AccountStatus status, Long subProductId,
+    public AccountDetailsDto(String id, String customerId, String baseCurrency, String type, String nib, AccountStatus status, String subProductId,
                              AccountIdentification identification, AccountActivityStatus accountActivityStatus,
                              List<BalanceDetailsDto> balances, List<CardDetailsDto> cards, boolean isCurrent, PropertyStatus propertyStatus) {
         this.id = id;
@@ -52,7 +52,7 @@ public class AccountDetailsDto {
         this.propertyStatus = propertyStatus;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
@@ -72,7 +72,7 @@ public class AccountDetailsDto {
         return type;
     }
 
-    public Long getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
@@ -88,7 +88,7 @@ public class AccountDetailsDto {
         return propertyStatus;
     }
 
-    public Long getSubProductId() {
+    public String getSubProductId() {
         return subProductId;
     }
 

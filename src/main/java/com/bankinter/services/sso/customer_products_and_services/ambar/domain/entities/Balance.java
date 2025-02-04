@@ -3,23 +3,18 @@ package com.bankinter.services.sso.customer_products_and_services.ambar.domain.e
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.enums.balance.BalanceIndicator;
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.enums.balance.BalanceType;
 import jakarta.persistence.*;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 
-@Entity
-@Table(name = "balance")
+@Document(collection = "balances")
 public class Balance {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
-    //private Long accountId; //foreign key
-
-    @Enumerated(EnumType.STRING)
     private BalanceType type;
 
-    @Enumerated(EnumType.STRING)
     private BalanceIndicator creditDebitIndicator;
 
     private String calculationDate;
@@ -51,13 +46,9 @@ public class Balance {
         return calculationDate;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
-
-//    public Long getAccountId() {
-//        return accountId;
-//    }
 
     public void setCalculationDate(String calculationDate) {
         this.calculationDate = calculationDate;
@@ -75,7 +66,4 @@ public class Balance {
         this.type = type;
     }
 
-//    public void setAccountId(Long accountId) {
-//        this.accountId = accountId;
-//    }
 }

@@ -1,9 +1,9 @@
 package com.bankinter.services.sso.customer_products_and_services.ambar.application.queries.account;
 
 public class GetAccountBalancesByAccountIdQuery {
-    public Long accountId;
+    public String accountId;
 
-    public GetAccountBalancesByAccountIdQuery(Long accountId) {
+    public GetAccountBalancesByAccountIdQuery(String accountId) {
         this.accountId = accountId;
     }
 }

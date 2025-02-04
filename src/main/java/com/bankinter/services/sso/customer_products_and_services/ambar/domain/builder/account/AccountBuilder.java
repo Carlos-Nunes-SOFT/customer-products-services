@@ -10,10 +10,10 @@ import com.bankinter.services.sso.customer_products_and_services.ambar.domain.va
 
 public interface AccountBuilder {
     Account build();
-    AccountBuilder newAccount(Long customerId, String baseCurrency, String type, String nib, AccountStatus status,
-                          Long subProductId, AccountIdentification identification, AccountActivityStatus accountActivityStatus,
+    AccountBuilder newAccount(String customerId, String baseCurrency, String type, String nib, AccountStatus status,
+                          String subProductId, AccountIdentification identification, AccountActivityStatus accountActivityStatus,
                               boolean isCurrent, PropertyStatus propertyStatus);
     AccountBuilder addBalance(Balance balance);
-    AccountBuilder addCard(Long cardId);
+    AccountBuilder addCard(String cardId);
 
 }

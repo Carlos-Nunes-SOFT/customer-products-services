@@ -4,7 +4,7 @@ import com.bankinter.services.sso.customer_products_and_services.ambar.domain.en
 
 public class CreateCardDto {
 
-    private Long accountId;
+    private String accountId;
 
     private String cardNumber;
 
@@ -18,7 +18,7 @@ public class CreateCardDto {
 
     private PropertyStatus propertyStatus;
 
-    public CreateCardDto(Long accountId, String cardNumber, String cardType, String nameInCard,
+    public CreateCardDto(String accountId, String cardNumber, String cardType, String nameInCard,
                          Long productId, Long subProductId, PropertyStatus propertyStatus) {
         this.accountId = accountId;
         this.cardNumber = cardNumber;

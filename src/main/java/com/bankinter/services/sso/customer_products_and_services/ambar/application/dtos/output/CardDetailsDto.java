@@ -3,11 +3,7 @@ package com.bankinter.services.sso.customer_products_and_services.ambar.applicat
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.enums.PropertyStatus;
 
 public class CardDetailsDto {
-    private Long id;
-
-    //private Long accountId; NOT NECCESSARY
-
-    //private String accountNumber; DEPRECATED
+    private String id;
 
     private String cardNumber;
 
@@ -21,7 +17,7 @@ public class CardDetailsDto {
 
     private PropertyStatus propertyStatus;
 
-    public CardDetailsDto(Long id, String cardNumber, String cardType, String nameInCard,
+    public CardDetailsDto(String id, String cardNumber, String cardType, String nameInCard,
                           Long productId, Long subProductId, PropertyStatus propertyStatus) {
         this.id = id;
         this.cardNumber = cardNumber;
@@ -32,7 +28,7 @@ public class CardDetailsDto {
         this.propertyStatus = propertyStatus;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

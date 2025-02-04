@@ -3,18 +3,13 @@ package com.bankinter.services.sso.customer_products_and_services.ambar.domain.e
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.enums.PropertyStatus;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name = "card")
+@Document(collection = "cards")
 public class Card {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    //private Long accountId; //foreign key //NOT NEEDED
-
-    //private String accountNumber; DEPRECATED
+    private String id;
 
     private String cardNumber;
 
@@ -26,8 +21,6 @@ public class Card {
 
     private Long subProductId;
 
-    @Nullable
-    @Enumerated(EnumType.STRING)
     private PropertyStatus propertyStatus;
 
     protected Card(){}
@@ -41,11 +34,10 @@ public class Card {
         this.cardNumber = cardNumber;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    @Nullable
     public PropertyStatus getPropertyStatus() {
         return propertyStatus;
     }

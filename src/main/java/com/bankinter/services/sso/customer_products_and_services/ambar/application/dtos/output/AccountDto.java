@@ -5,12 +5,10 @@ import com.bankinter.services.sso.customer_products_and_services.ambar.domain.en
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.enums.account.AccountStatus;
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.valueObjects.AccountIdentification;
 
-import java.util.List;
-
 public class AccountDto {
-    private Long id;
+    private String id;
 
-    private Long customerId;
+    private String customerId;
 
     private String baseCurrency;
 
@@ -20,7 +18,7 @@ public class AccountDto {
 
     private AccountStatus status;
 
-    private Long subProductId;
+    private String subProductId;
 
     private AccountIdentification identification;
 
@@ -30,8 +28,8 @@ public class AccountDto {
 
     private PropertyStatus propertyStatus;
 
-    public AccountDto(Long id, Long customerId, String baseCurrency, String type, String nib, AccountStatus status,
-                      Long subProductId, AccountIdentification identification, AccountActivityStatus accountActivityStatus,
+    public AccountDto(String id, String customerId, String baseCurrency, String type, String nib, AccountStatus status,
+                      String subProductId, AccountIdentification identification, AccountActivityStatus accountActivityStatus,
                       boolean isCurrent, PropertyStatus propertyStatus) {
         this.id = id;
         this.customerId = customerId;
@@ -50,7 +48,7 @@ public class AccountDto {
         return propertyStatus;
     }
 
-    public Long getSubProductId() {
+    public String getSubProductId() {
         return subProductId;
     }
 
@@ -62,11 +60,11 @@ public class AccountDto {
         return identification;
     }
 
-    public Long getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

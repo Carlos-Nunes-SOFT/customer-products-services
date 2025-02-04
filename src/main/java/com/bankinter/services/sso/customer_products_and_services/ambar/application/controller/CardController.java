@@ -51,7 +51,7 @@ public class CardController {
     }
 
     @GetMapping
-    public ResponseEntity<CardDetailsDto> getCardById(@RequestParam(name = "id") Long cardId){
+    public ResponseEntity<CardDetailsDto> getCardById(@RequestParam(name = "id") String cardId){
         GetCardByIdQuery request = new GetCardByIdQuery(cardId);
         CardDetailsDto card = this.cardQueryHandler.getById(request);
 

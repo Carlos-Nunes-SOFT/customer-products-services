@@ -21,8 +21,8 @@ public class AccountBuilderImpl implements AccountBuilder {
     }
 
     @Override
-    public AccountBuilder newAccount(Long customerId, String baseCurrency, String type, String nib,
-                             AccountStatus status, Long subProductId, AccountIdentification identification,
+    public AccountBuilder newAccount(String customerId, String baseCurrency, String type, String nib,
+                             AccountStatus status, String subProductId, AccountIdentification identification,
                                      AccountActivityStatus accountActivityStatus, boolean isCurrent, PropertyStatus propertyStatus) {
         account = new Account(customerId, baseCurrency, type, nib, status,
                 subProductId, identification, accountActivityStatus, isCurrent, propertyStatus);
@@ -38,7 +38,7 @@ public class AccountBuilderImpl implements AccountBuilder {
     }
 
     @Override
-    public AccountBuilder addCard(Long cardId) {
+    public AccountBuilder addCard(String cardId) {
         if(cardId==null)
             throw new IllegalArgumentException("The card object cannot be null.");
         account.addCard(cardId);

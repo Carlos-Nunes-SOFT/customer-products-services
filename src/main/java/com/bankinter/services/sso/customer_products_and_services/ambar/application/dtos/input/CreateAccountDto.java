@@ -7,7 +7,7 @@ import com.bankinter.services.sso.customer_products_and_services.ambar.domain.va
 
 public class CreateAccountDto {
 
-    private Long customerId;
+    private String customerId;
 
     private String baseCurrency;
 
@@ -27,7 +27,7 @@ public class CreateAccountDto {
 
     private PropertyStatus propertyStatus;
 
-    public CreateAccountDto(Long customerId, String baseCurrency, String type, String nib, AccountStatus status, Long subProductId,
+    public CreateAccountDto(String customerId, String baseCurrency, String type, String nib, AccountStatus status, Long subProductId,
                             AccountIdentification identification, AccountActivityStatus accountActivityStatus,
                             boolean isCurrent, PropertyStatus propertyStatus) {
         this.customerId = customerId;
@@ -42,7 +42,7 @@ public class CreateAccountDto {
         this.propertyStatus = propertyStatus;
     }
 
-    public Long getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 

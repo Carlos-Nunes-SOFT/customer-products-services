@@ -4,23 +4,20 @@ import com.bankinter.services.sso.customer_products_and_services.ambar.domain.en
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.enums.account.AccountActivityStatus;
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.enums.account.AccountStatus;
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.valueObjects.AccountIdentification;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-@Entity
-@Table(name = "account")
-//@Builder
+@Document(collection = "accounts")
 public class Account {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
-    private Long customerId; //Add customer reference
+    private String customerId; //Add customer reference
 
     private String baseCurrency;
 
@@ -28,37 +25,26 @@ public class Account {
 
     private String nib;
 
-    @Enumerated(EnumType.STRING)
     private AccountStatus status;
 
-    private Long subProductId;
+    private String subProductId;
 
-    @Embedded
     private AccountIdentification identification;
 
-    @Enumerated(EnumType.STRING)
     private AccountActivityStatus accountActivityStatus;
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    //@Transient //not stored in this database
-    @JoinColumn(name = "account_id")
-    private final List<Balance> balances = new ArrayList<>();
-
-    @ElementCollection
-    @CollectionTable(name = "account_card_ids", joinColumns = @JoinColumn(name = "account_id"))
-    @Column(name = "card_id")
-    private List<Long> cardIds = new ArrayList<>();
 
     private boolean isCurrent;
 
-    @Nullable
-    @Enumerated(EnumType.STRING)
     private PropertyStatus propertyStatus;
+
+    private final List<Balance> balances = new ArrayList<>();
+
+    private List<String> cardIds = new ArrayList<>();
 
     protected Account(){}
 
-    public Account(Long customerId, String baseCurrency, String type, String nib, AccountStatus status,
-                   Long subProductId, AccountIdentification identification,
+    public Account(String customerId, String baseCurrency, String type, String nib, AccountStatus status,
+                   String subProductId, AccountIdentification identification,
                    AccountActivityStatus accountActivityStatus, boolean isCurrent, PropertyStatus propertyStatus) {
         this.customerId = customerId;
         this.baseCurrency = baseCurrency;
@@ -85,31 +71,31 @@ public class Account {
         this.balances.remove(balance);
     }
 
-    public void addCard(Long cardId){
+    public void addCard(String cardId){
         if(cardId == null)
             throw new IllegalArgumentException("Card id cannot be null.");
         this.cardIds.add(cardId);
     }
 
-    public void removeCard(Long cardId){
+    public void removeCard(String cardId){
         if(cardId==null)
             throw new IllegalArgumentException("Card id cannot be null.");
         this.cardIds.remove(cardId);
     }
 
-    public List<Long> getCardIds() {
+    public List<String> getCardIds() {
         return cardIds;
     }
 
-    public void setCustomerId(Long customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 
-    public Long getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
@@ -129,7 +115,7 @@ public class Account {
         return Collections.unmodifiableList(balances);
     }
 
-    public Long getSubProductId() {
+    public String getSubProductId() {
         return subProductId;
     }
 
@@ -157,11 +143,11 @@ public class Account {
         this.status = status;
     }
 
-    public void setCardId(Long customerId) {
+    public void setCardId(String customerId) {
         this.customerId = customerId;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -193,7 +179,7 @@ public class Account {
         this.propertyStatus = propertyStatus;
     }
 
-    public void setSubProductId(Long subProductId) {
+    public void setSubProductId(String subProductId) {
         this.subProductId = subProductId;
     }
 }

@@ -43,7 +43,7 @@ public class AccountController {
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand(accountDetailsDto.getId().toString())
+                .buildAndExpand(accountDetailsDto.getId())
                 .toUri();
 
         return ResponseEntity.created(location).build();
@@ -57,7 +57,7 @@ public class AccountController {
     }
 
     @GetMapping
-    public ResponseEntity<AccountDetailsDto> getAccountById(@RequestParam(name = "id") Long accountId){
+    public ResponseEntity<AccountDetailsDto> getAccountById(@RequestParam(name = "id") String accountId){
         GetAccountByIdQuery request = new GetAccountByIdQuery(accountId);
         AccountDetailsDto account = this.accountQueryHandler.getById(request);
 
@@ -65,7 +65,7 @@ public class AccountController {
     }
 
     @GetMapping("/cards")
-    public ResponseEntity<List<CardDetailsDto>> getAccountCards(@RequestParam(name = "id") Long accountId){
+    public ResponseEntity<List<CardDetailsDto>> getAccountCards(@RequestParam(name = "id") String accountId){
         GetAccountCardsByAccountIdQuery request = new GetAccountCardsByAccountIdQuery(accountId);
         List<CardDetailsDto> cards = this.accountQueryHandler.getAccountCards(request);
 
@@ -73,7 +73,7 @@ public class AccountController {
     }
 
     @GetMapping("/balances")
-    public ResponseEntity<List<BalanceDetailsDto>> getAccountBalances(@RequestParam(name = "id") Long accountId){
+    public ResponseEntity<List<BalanceDetailsDto>> getAccountBalances(@RequestParam(name = "id") String accountId){
         GetAccountBalancesByAccountIdQuery request = new GetAccountBalancesByAccountIdQuery(accountId);
         List<BalanceDetailsDto> balances = this.accountQueryHandler.getAccountBalances(request);
 

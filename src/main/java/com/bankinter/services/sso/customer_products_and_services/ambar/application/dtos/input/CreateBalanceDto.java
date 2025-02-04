@@ -7,8 +7,6 @@ import java.math.BigDecimal;
 
 public class CreateBalanceDto {
 
-    //private Long accountId;
-
     private BalanceType type;
 
     private BalanceIndicator creditDebitIndicator;

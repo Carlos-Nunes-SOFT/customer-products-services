@@ -6,17 +6,24 @@ spring:
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver
 
-  jpa:
-    defer-datasource-initialization: true
-    show-sql: true
-    hibernate:
-      dll-auto: update
-      format_sql: true
+  main:
+    allow-bean-definition-overriding: true
 
-  h2:
-    console:
-        enabled: true
-        path: /h2-console
+  data:
+    mongodb:
+      uri: mongodb://109.123.244.12:30914/customer-products-and-services?authSource=customer-and-services&retryWrites=false
+      database: customer-products-and-services
+#  jpa:
+#    defer-datasource-initialization: true
+#    show-sql: true
+#    hibernate:
+#      dll-auto: update
+#      format_sql: true
+#
+#  h2:
+#    console:
+#        enabled: true
+#        path: /h2-console
 
 server:
   port: 8080

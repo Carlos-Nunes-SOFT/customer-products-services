@@ -1,7 +1,6 @@
 package com.bankinter.services.sso.customer_products_and_services.ambar.application.queries.balances;
 
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.BalanceDetailsDto;
-import com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.CardDetailsDto;
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.mappers.BalanceMapper;
 import com.bankinter.services.sso.customer_products_and_services.ambar.infrastructure.repository.BalanceRepository;
 import org.springframework.stereotype.Service;

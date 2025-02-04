@@ -1,14 +1,13 @@
 package com.bankinter.services.sso.customer_products_and_services.ambar.domain.entities;
 
 import jakarta.persistence.*;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name = "product")
+@Document
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     private String type;
 
@@ -21,7 +20,7 @@ public class Product {
         this.value = value;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
@@ -37,7 +36,7 @@ public class Product {
         this.type = type;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

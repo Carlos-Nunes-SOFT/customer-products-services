@@ -6,7 +6,8 @@ import com.bankinter.services.sso.customer_products_and_services.ambar.domain.en
 import java.math.BigDecimal;
 
 public class CreateBalanceCommand {
-    public Long accountId;
+    public String accountId;
+
     public BalanceType type;
 
     public BalanceIndicator creditDebitIndicator;
