@@ -38,13 +38,15 @@ public class CardService {
                 .orElseThrow(() -> new NotFoundException("No such account with id: " + request.accountId));
 
         Card card = this.cardBuilder
-                .newCard(request.accountId, request.propertyStatus, request.subProductId, request.productId, request.nameInCard,
+                .newCard(account.getId(), request.propertyStatus, request.subProductId, request.productId, request.nameInCard,
                         request.cardType, request.cardNumber)
                 .build();
 
-        account.addCard(card);
-        this.accountRepository.save(account);
+        //card.setAccountId(account.getId());
         this.cardRepository.save(card);
+
+        account.addCard(card.getId());
+        this.accountRepository.save(account);
 
         return this.cardMapper.toDto(card);
     }

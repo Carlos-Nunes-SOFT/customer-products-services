@@ -3,8 +3,11 @@ package com.bankinter.services.sso.customer_products_and_services.ambar.applicat
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.commands.account.AccountCommandHandler;
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.commands.account.CreateAccountCommand;
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.AccountDetailsDto;
+import com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.AccountDto;
+import com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.CardDetailsDto;
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.queries.account.AccountQueryHandler;
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.queries.account.GetAccountByIdQuery;
+import com.bankinter.services.sso.customer_products_and_services.ambar.application.queries.account.GetAccountCardsByAccountIdQuery;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -45,8 +48,8 @@ public class AccountController {
     }
 
     @GetMapping("/accounts")
-    ResponseEntity<List<AccountDetailsDto>> getAccounts(){
-        List<AccountDetailsDto> accounts = this.accountQueryHandler.getAccounts();
+    ResponseEntity<List<AccountDto>> getAccounts(){
+        List<AccountDto> accounts = this.accountQueryHandler.getAccounts();
 
         return ResponseEntity.ok(accounts);
     }
@@ -57,6 +60,14 @@ public class AccountController {
         AccountDetailsDto account = this.accountQueryHandler.getById(request);
 
         return ResponseEntity.ok(account);
+    }
+
+    @GetMapping("/cards")
+    public ResponseEntity<List<CardDetailsDto>> getAccountCards(@RequestParam(name = "id") Long accountId){
+        GetAccountCardsByAccountIdQuery request = new GetAccountCardsByAccountIdQuery(accountId);
+        List<CardDetailsDto> cards = this.accountQueryHandler.getAccountCards(request);
+
+        return ResponseEntity.ok(cards);
     }
 
 }

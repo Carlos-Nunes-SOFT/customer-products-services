@@ -38,10 +38,10 @@ public class AccountBuilderImpl implements AccountBuilder {
     }
 
     @Override
-    public AccountBuilder addCard(Card card) {
-        if(card==null)
+    public AccountBuilder addCard(Long cardId) {
+        if(cardId==null)
             throw new IllegalArgumentException("The card object cannot be null.");
-        account.addCard(card);
+        account.addCard(cardId);
         return this;
     }
 }

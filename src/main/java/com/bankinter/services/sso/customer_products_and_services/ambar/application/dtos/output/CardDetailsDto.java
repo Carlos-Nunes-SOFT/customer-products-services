@@ -24,6 +24,7 @@ public class CardDetailsDto {
     public CardDetailsDto(Long id, Long accountId, String cardNumber, String cardType, String nameInCard,
                           Long productId, Long subProductId, PropertyStatus propertyStatus) {
         this.id = id;
+        this.accountId = accountId;
         this.cardNumber = cardNumber;
         this.cardType = cardType;
         this.nameInCard = nameInCard;

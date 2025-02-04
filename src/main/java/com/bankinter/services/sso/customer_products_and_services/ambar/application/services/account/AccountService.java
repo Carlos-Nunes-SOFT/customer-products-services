@@ -27,7 +27,7 @@ public class AccountService {
     public AccountDetailsDto createAccount(CreateAccountCommand request){
 
         Account account = this.accountBuilder
-                .newAccount(request.cardId, request.baseCurrency, request.type, request.nib, request.status,
+                .newAccount(request.customerId, request.baseCurrency, request.type, request.nib, request.status,
                                 request.subProductId, request.identification, request.accountActivityStatus,
                                     request.isCurrent, request.propertyStatus)
                 .build();

@@ -43,9 +43,14 @@ public class Account {
     @Transient //not stored in this database
     private final List<Balance> balances = new ArrayList<>();
 
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
-    @Transient //not stored in this database
-    private final List<Card> cards = new ArrayList<>();
+    //@OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    //@Transient //not stored in this database
+    //private final List<Card> cards = new ArrayList<>();
+
+    @ElementCollection
+    @CollectionTable(name = "account_card_ids", joinColumns = @JoinColumn(name = "account_id"))
+    @Column(name = "card_id")
+    private List<Long> cardIds = new ArrayList<>();
 
     private boolean isCurrent;
 
@@ -83,21 +88,20 @@ public class Account {
         this.balances.remove(balance);
     }
 
-    public void addCard(Card card){
-        if(card == null)
-            throw new IllegalArgumentException("Card cannot be null.");
-        this.cards.add(card);
-        card.setAccountId(this.id);
+    public void addCard(Long cardId){
+        if(cardId == null)
+            throw new IllegalArgumentException("Card id cannot be null.");
+        this.cardIds.add(cardId);
     }
 
-    public void removeCard(Card card){
-        if(card==null)
-            throw new IllegalArgumentException("Card cannot be null.");
-        this.cards.remove(card);
+    public void removeCard(Long cardId){
+        if(cardId==null)
+            throw new IllegalArgumentException("Card id cannot be null.");
+        this.cardIds.remove(cardId);
     }
 
-    public List<Card> getCards() {
-        return cards;
+    public List<Long> getCardIds() {
+        return cardIds;
     }
 
     public void setCustomerId(Long customerId) {
@@ -148,7 +152,7 @@ public class Account {
         return propertyStatus;
     }
 
-    public boolean isCurrent() {
+    public boolean getIsCurrent() {
         return isCurrent;
     }
 

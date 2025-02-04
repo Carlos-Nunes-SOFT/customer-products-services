@@ -6,7 +6,7 @@ import com.bankinter.services.sso.customer_products_and_services.ambar.domain.en
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.valueObjects.AccountIdentification;
 
 public class CreateAccountCommand {
-    public Long cardId;
+    public Long customerId;
 
     public String baseCurrency;
 

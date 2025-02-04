@@ -14,6 +14,6 @@ public interface AccountBuilder {
                           Long subProductId, AccountIdentification identification, AccountActivityStatus accountActivityStatus,
                               boolean isCurrent, PropertyStatus propertyStatus);
     AccountBuilder addBalance(Balance balance);
-    AccountBuilder addCard(Card card);
+    AccountBuilder addCard(Long cardId);
 
 }
