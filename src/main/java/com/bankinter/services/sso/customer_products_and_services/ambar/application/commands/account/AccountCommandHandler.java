@@ -1,7 +1,7 @@
 package com.bankinter.services.sso.customer_products_and_services.ambar.application.commands.account;
 
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.AccountDetailsDto;
-import com.bankinter.services.sso.customer_products_and_services.ambar.application.services.account.AccountService;
+import com.bankinter.services.sso.customer_products_and_services.ambar.application.services.AccountService;
 import org.springframework.stereotype.Service;
 
 @Service

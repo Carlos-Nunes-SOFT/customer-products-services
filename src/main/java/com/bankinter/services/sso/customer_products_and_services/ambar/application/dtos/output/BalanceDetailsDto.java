@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public class BalanceDetailsDto {
     private Long id;
 
-    private Long accountId; //foreign key
+    //private Long accountId; //foreign key
 
     private BalanceType type;
 
@@ -18,13 +18,32 @@ public class BalanceDetailsDto {
 
     private BigDecimal balanceAmount;
 
-    public BalanceDetailsDto(Long id, Long accountId, BalanceType type, BalanceIndicator creditDebitIndicator,
+    public BalanceDetailsDto(Long id, BalanceType type, BalanceIndicator creditDebitIndicator,
                              String calculationDate, BigDecimal balanceAmount) {
         this.id = id;
-        this.accountId = accountId;
         this.type = type;
         this.creditDebitIndicator = creditDebitIndicator;
         this.calculationDate = calculationDate;
         this.balanceAmount = balanceAmount;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getCalculationDate() {
+        return calculationDate;
+    }
+
+    public BalanceIndicator getCreditDebitIndicator() {
+        return creditDebitIndicator;
+    }
+
+    public BalanceType getType() {
+        return type;
+    }
+
+    public BigDecimal getBalanceAmount() {
+        return balanceAmount;
     }
 }

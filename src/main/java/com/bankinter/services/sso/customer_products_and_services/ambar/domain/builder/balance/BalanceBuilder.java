@@ -8,6 +8,6 @@ import java.math.BigDecimal;
 
 public interface BalanceBuilder {
     Balance build();
-    BalanceBuilder newBalance(Long accountId, BalanceType type, BalanceIndicator creditDebitIndicator,
+    BalanceBuilder newBalance(BalanceType type, BalanceIndicator creditDebitIndicator,
                               String calculationDate, BigDecimal balanceAmount);
 }

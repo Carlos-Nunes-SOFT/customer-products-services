@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 public class CreateBalanceDto {
 
-    private Long accountId;
+    //private Long accountId;
 
     private BalanceType type;
 
@@ -17,8 +17,7 @@ public class CreateBalanceDto {
 
     private BigDecimal balanceAmount;
 
-    public CreateBalanceDto(Long accountId, BalanceType type, BalanceIndicator creditDebitIndicator, String calculationDate, BigDecimal balanceAmount) {
-        this.accountId = accountId;
+    public CreateBalanceDto(BalanceType type, BalanceIndicator creditDebitIndicator, String calculationDate, BigDecimal balanceAmount) {
         this.type = type;
         this.creditDebitIndicator = creditDebitIndicator;
         this.calculationDate = calculationDate;

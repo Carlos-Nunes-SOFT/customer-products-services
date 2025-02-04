@@ -37,7 +37,7 @@ public class CardController {
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand((card.getId()))
+                .buildAndExpand(card.getId())
                 .toUri();
 
         return ResponseEntity.created(location).build();

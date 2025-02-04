@@ -11,15 +11,10 @@ import java.util.ArrayList;
 @Component
 public class AccountMapper {
 
-    private final BalanceMapper balanceMapper;
-    private final CardMapper cardMapper;
-
-    public AccountMapper(BalanceMapper balanceMapper, CardMapper cardMapper) {
-        this.balanceMapper = balanceMapper;
-        this.cardMapper = cardMapper;
+    public AccountMapper() {
     }
 
-   public AccountDto toDto(Account account){
+    public AccountDto toDto(Account account){
         if(account==null)
             return null;
         return new AccountDto(account.getId(), account.getCustomerId(), account.getBaseCurrency(), account.getType(), account.getNib(), account.getStatus(), account.getSubProductId(),
@@ -30,7 +25,7 @@ public class AccountMapper {
         if(account==null)
             return null;
         return new AccountDetailsDto(account.getId(), account.getCustomerId(), account.getBaseCurrency(), account.getType(), account.getNib(), account.getStatus(),
-                account.getSubProductId(), account.getIdentification(), account.getAccountActivityStatus(), balanceMapper.toDtoList(account.getBalances()),
+                account.getSubProductId(), account.getIdentification(), account.getAccountActivityStatus(), new ArrayList<>(),
                 new ArrayList<>(), account.getIsCurrent(),account.getPropertyStatus());
     }
 }

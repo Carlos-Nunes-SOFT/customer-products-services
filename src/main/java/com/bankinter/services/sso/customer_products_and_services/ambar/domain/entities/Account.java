@@ -39,13 +39,10 @@ public class Account {
     @Enumerated(EnumType.STRING)
     private AccountActivityStatus accountActivityStatus;
 
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
-    @Transient //not stored in this database
-    private final List<Balance> balances = new ArrayList<>();
-
-    //@OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     //@Transient //not stored in this database
-    //private final List<Card> cards = new ArrayList<>();
+    @JoinColumn(name = "account_id")
+    private final List<Balance> balances = new ArrayList<>();
 
     @ElementCollection
     @CollectionTable(name = "account_card_ids", joinColumns = @JoinColumn(name = "account_id"))
@@ -79,7 +76,7 @@ public class Account {
         if(balance == null)
             throw new IllegalArgumentException("Balance cannot be null.");
         this.balances.add(balance);
-        balance.setAccountId(this.id);
+        //balance.setAccountId(this.id);
     }
 
     public void removeBalance(Balance balance){

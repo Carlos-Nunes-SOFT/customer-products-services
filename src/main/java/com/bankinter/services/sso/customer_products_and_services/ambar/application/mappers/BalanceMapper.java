@@ -12,7 +12,7 @@ public class BalanceMapper {
     public BalanceDetailsDto toDto(Balance balance) {
         if(balance==null)
             return null;
-        return new BalanceDetailsDto(balance.getId(), balance.getAccountId(), balance.getType(), balance.getCreditDebitIndicator(),
+        return new BalanceDetailsDto(balance.getId(), balance.getType(), balance.getCreditDebitIndicator(),
                 balance.getCalculationDate(), balance.getBalanceAmount());
     }
 

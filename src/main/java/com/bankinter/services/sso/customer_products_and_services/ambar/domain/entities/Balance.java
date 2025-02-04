@@ -14,7 +14,7 @@ public class Balance {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long accountId; //foreign key
+    //private Long accountId; //foreign key
 
     @Enumerated(EnumType.STRING)
     private BalanceType type;
@@ -28,8 +28,7 @@ public class Balance {
 
     protected Balance(){}
 
-    public Balance(Long accountId, BalanceType type, BalanceIndicator creditDebitIndicator, String calculationDate, BigDecimal balanceAmount) {
-        this.accountId = accountId;
+    public Balance(BalanceType type, BalanceIndicator creditDebitIndicator, String calculationDate, BigDecimal balanceAmount) {
         this.type = type;
         this.creditDebitIndicator = creditDebitIndicator;
         this.calculationDate = calculationDate;
@@ -56,9 +55,9 @@ public class Balance {
         return id;
     }
 
-    public Long getAccountId() {
-        return accountId;
-    }
+//    public Long getAccountId() {
+//        return accountId;
+//    }
 
     public void setCalculationDate(String calculationDate) {
         this.calculationDate = calculationDate;
@@ -76,7 +75,7 @@ public class Balance {
         this.type = type;
     }
 
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
-    }
+//    public void setAccountId(Long accountId) {
+//        this.accountId = accountId;
+//    }
 }

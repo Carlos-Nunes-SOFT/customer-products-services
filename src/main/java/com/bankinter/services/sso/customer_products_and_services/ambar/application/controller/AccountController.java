@@ -4,8 +4,10 @@ import com.bankinter.services.sso.customer_products_and_services.ambar.applicati
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.commands.account.CreateAccountCommand;
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.AccountDetailsDto;
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.AccountDto;
+import com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.BalanceDetailsDto;
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.CardDetailsDto;
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.queries.account.AccountQueryHandler;
+import com.bankinter.services.sso.customer_products_and_services.ambar.application.queries.account.GetAccountBalancesByAccountIdQuery;
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.queries.account.GetAccountByIdQuery;
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.queries.account.GetAccountCardsByAccountIdQuery;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -68,6 +70,14 @@ public class AccountController {
         List<CardDetailsDto> cards = this.accountQueryHandler.getAccountCards(request);
 
         return ResponseEntity.ok(cards);
+    }
+
+    @GetMapping("/balances")
+    public ResponseEntity<List<BalanceDetailsDto>> getAccountBalances(@RequestParam(name = "id") Long accountId){
+        GetAccountBalancesByAccountIdQuery request = new GetAccountBalancesByAccountIdQuery(accountId);
+        List<BalanceDetailsDto> balances = this.accountQueryHandler.getAccountBalances(request);
+
+        return ResponseEntity.ok(balances);
     }
 
 }

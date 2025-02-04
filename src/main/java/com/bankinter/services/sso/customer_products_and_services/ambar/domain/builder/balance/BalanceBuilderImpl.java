@@ -3,9 +3,11 @@ package com.bankinter.services.sso.customer_products_and_services.ambar.domain.b
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.entities.Balance;
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.enums.balance.BalanceIndicator;
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.enums.balance.BalanceType;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
+@Component
 public class BalanceBuilderImpl implements  BalanceBuilder{
 
     private Balance balance;
@@ -18,8 +20,8 @@ public class BalanceBuilderImpl implements  BalanceBuilder{
     }
 
     @Override
-    public BalanceBuilder newBalance(Long accountId, BalanceType type, BalanceIndicator creditDebitIndicator, String calculationDate, BigDecimal balanceAmount) {
-        balance = new Balance(accountId, type, creditDebitIndicator, calculationDate, balanceAmount);
+    public BalanceBuilder newBalance(BalanceType type, BalanceIndicator creditDebitIndicator, String calculationDate, BigDecimal balanceAmount) {
+        balance = new Balance(type, creditDebitIndicator, calculationDate, balanceAmount);
         return this;
     }
 }

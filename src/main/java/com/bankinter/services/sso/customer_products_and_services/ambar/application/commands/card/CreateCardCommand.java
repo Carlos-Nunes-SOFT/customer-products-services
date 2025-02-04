@@ -4,7 +4,6 @@ import com.bankinter.services.sso.customer_products_and_services.ambar.domain.en
 
 public class CreateCardCommand {
     public Long accountId;
-
     public String cardNumber;
 
     public String cardType;
