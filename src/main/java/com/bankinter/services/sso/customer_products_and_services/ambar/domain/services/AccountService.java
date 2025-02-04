@@ -1,4 +1,4 @@
-package com.bankinter.services.sso.customer_products_and_services.ambar.application.services;
+package com.bankinter.services.sso.customer_products_and_services.ambar.domain.services;
 
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.commands.account.CreateAccountCommand;
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.AccountDetailsDto;

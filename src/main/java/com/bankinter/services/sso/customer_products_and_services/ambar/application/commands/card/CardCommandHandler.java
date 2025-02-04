@@ -1,7 +1,7 @@
 package com.bankinter.services.sso.customer_products_and_services.ambar.application.commands.card;
 
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.CardDetailsDto;
-import com.bankinter.services.sso.customer_products_and_services.ambar.application.services.CardService;
+import com.bankinter.services.sso.customer_products_and_services.ambar.domain.services.CardService;
 import org.springframework.stereotype.Service;
 
 @Service

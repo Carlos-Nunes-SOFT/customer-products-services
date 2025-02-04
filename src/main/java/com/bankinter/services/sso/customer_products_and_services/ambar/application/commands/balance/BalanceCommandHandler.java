@@ -1,7 +1,7 @@
 package com.bankinter.services.sso.customer_products_and_services.ambar.application.commands.balance;
 
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.BalanceDetailsDto;
-import com.bankinter.services.sso.customer_products_and_services.ambar.application.services.BalanceService;
+import com.bankinter.services.sso.customer_products_and_services.ambar.domain.services.BalanceService;
 import org.springframework.stereotype.Service;
 
 @Service
