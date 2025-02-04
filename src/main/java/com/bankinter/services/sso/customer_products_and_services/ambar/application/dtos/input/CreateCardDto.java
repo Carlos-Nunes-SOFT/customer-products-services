@@ -1,11 +1,10 @@
-package com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.input.card;
+package com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.input;
 
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.enums.PropertyStatus;
-import jakarta.annotation.Nullable;
 
 public class CreateCardDto {
 
-    private String accountNumber;
+    private Long accountId;
 
     private String cardNumber;
 
@@ -19,9 +18,9 @@ public class CreateCardDto {
 
     private PropertyStatus propertyStatus;
 
-    public CreateCardDto(String accountNumber, String cardNumber, String cardType, String nameInCard,
+    public CreateCardDto(Long accountId, String cardNumber, String cardType, String nameInCard,
                          Long productId, Long subProductId, PropertyStatus propertyStatus) {
-        this.accountNumber = accountNumber;
+        this.accountId = accountId;
         this.cardNumber = cardNumber;
         this.cardType = cardType;
         this.nameInCard = nameInCard;

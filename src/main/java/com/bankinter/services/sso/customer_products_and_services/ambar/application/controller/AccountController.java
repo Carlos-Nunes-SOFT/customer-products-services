@@ -2,21 +2,20 @@ package com.bankinter.services.sso.customer_products_and_services.ambar.applicat
 
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.commands.account.AccountCommandHandler;
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.commands.account.CreateAccountCommand;
-import com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.account.AccountDetailsDto;
-import com.bankinter.services.sso.customer_products_and_services.ambar.application.services.account.AccountService;
+import com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.AccountDetailsDto;
+import com.bankinter.services.sso.customer_products_and_services.ambar.application.queries.account.AccountQueryHandler;
+import com.bankinter.services.sso.customer_products_and_services.ambar.application.queries.account.GetAccountByIdQuery;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @Validated
@@ -24,12 +23,13 @@ import java.net.URI;
 @RequestMapping("/api/v1/account")
 public class AccountController {
 
-    private static final Logger logger = LoggerFactory.getLogger(AccountController.class);
-
     private final AccountCommandHandler accountCommandHandler;
+    private final AccountQueryHandler accountQueryHandler;
 
-    public AccountController(AccountCommandHandler accountCommandHandler) {
+    public AccountController(AccountCommandHandler accountCommandHandler,
+                             AccountQueryHandler accountQueryHandler) {
         this.accountCommandHandler = accountCommandHandler;
+        this.accountQueryHandler = accountQueryHandler;
     }
 
     @PostMapping
@@ -43,4 +43,20 @@ public class AccountController {
 
         return ResponseEntity.created(location).build();
     }
+
+    @GetMapping("/accounts")
+    ResponseEntity<List<AccountDetailsDto>> getAccounts(){
+        List<AccountDetailsDto> accounts = this.accountQueryHandler.getAccounts();
+
+        return ResponseEntity.ok(accounts);
+    }
+
+    @GetMapping
+    public ResponseEntity<AccountDetailsDto> getAccountById(@RequestParam(name = "id") Long accountId){
+        GetAccountByIdQuery request = new GetAccountByIdQuery(accountId);
+        AccountDetailsDto account = this.accountQueryHandler.getById(request);
+
+        return ResponseEntity.ok(account);
+    }
+
 }

@@ -1,6 +1,6 @@
 package com.bankinter.services.sso.customer_products_and_services.ambar.application.mappers;
 
-import com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.balance.BalanceDetailsDto;
+import com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.BalanceDetailsDto;
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.entities.Balance;
 import org.springframework.stereotype.Component;
 

@@ -14,7 +14,7 @@ public class Card {
 
     private Long accountId; //foreign key
 
-    private String accountNumber;
+    //private String accountNumber; DEPRECATED
 
     private String cardNumber;
 
@@ -32,7 +32,7 @@ public class Card {
 
     protected Card(){}
 
-    public Card(Long accountId, PropertyStatus propertyStatus, Long subProductId, Long productId, String nameInCard, String cardType, String cardNumber, String accountNumber) {
+    public Card(Long accountId, PropertyStatus propertyStatus, Long subProductId, Long productId, String nameInCard, String cardType, String cardNumber) {
         this.accountId = accountId;
         this.propertyStatus = propertyStatus;
         this.subProductId = subProductId;
@@ -40,7 +40,6 @@ public class Card {
         this.nameInCard = nameInCard;
         this.cardType = cardType;
         this.cardNumber = cardNumber;
-        this.accountNumber = accountNumber;
     }
 
     public Long getId() {
@@ -66,10 +65,6 @@ public class Card {
 
     public Long getProductId() {
         return productId;
-    }
-
-    public String getAccountNumber() {
-        return accountNumber;
     }
 
     public String getCardNumber() {

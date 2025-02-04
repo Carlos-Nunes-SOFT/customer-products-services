@@ -1,4 +1,4 @@
-package com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.input.account;
+package com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.input;
 
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.enums.PropertyStatus;
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.enums.account.AccountActivityStatus;
@@ -7,7 +7,7 @@ import com.bankinter.services.sso.customer_products_and_services.ambar.domain.va
 
 public class CreateAccountDto {
 
-    private Long cardId;
+    private Long customerId;
 
     private String baseCurrency;
 
@@ -27,10 +27,10 @@ public class CreateAccountDto {
 
     private PropertyStatus propertyStatus;
 
-    public CreateAccountDto(Long cardId, String baseCurrency, String type, String nib, AccountStatus status, Long subProductId,
+    public CreateAccountDto(Long customerId, String baseCurrency, String type, String nib, AccountStatus status, Long subProductId,
                             AccountIdentification identification, AccountActivityStatus accountActivityStatus,
                             boolean isCurrent, PropertyStatus propertyStatus) {
-        this.cardId = cardId;
+        this.customerId = customerId;
         this.baseCurrency = baseCurrency;
         this.type = type;
         this.nib = nib;
@@ -42,8 +42,8 @@ public class CreateAccountDto {
         this.propertyStatus = propertyStatus;
     }
 
-    public Long getCardId() {
-        return cardId;
+    public Long getCustomerId() {
+        return customerId;
     }
 
     public Long getSubProductId() {

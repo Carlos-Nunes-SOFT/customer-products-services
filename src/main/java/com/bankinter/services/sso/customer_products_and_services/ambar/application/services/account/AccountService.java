@@ -1,7 +1,7 @@
 package com.bankinter.services.sso.customer_products_and_services.ambar.application.services.account;
 
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.commands.account.CreateAccountCommand;
-import com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.account.AccountDetailsDto;
+import com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.AccountDetailsDto;
 import com.bankinter.services.sso.customer_products_and_services.ambar.application.mappers.AccountMapper;
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.builder.account.AccountBuilder;
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.entities.Account;

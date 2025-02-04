@@ -1,4 +1,4 @@
-package com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.product;
+package com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output;
 
 public class ProductDetailsDto {
     private Long id;

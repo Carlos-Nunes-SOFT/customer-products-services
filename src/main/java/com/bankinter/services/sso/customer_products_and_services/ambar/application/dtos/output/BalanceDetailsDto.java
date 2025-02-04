@@ -1,4 +1,4 @@
-package com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output.balance;
+package com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.output;
 
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.enums.balance.BalanceIndicator;
 import com.bankinter.services.sso.customer_products_and_services.ambar.domain.enums.balance.BalanceType;

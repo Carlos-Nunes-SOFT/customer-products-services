@@ -1,4 +1,4 @@
-package com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.input.product;
+package com.bankinter.services.sso.customer_products_and_services.ambar.application.dtos.input;
 
 public class CreateProductDto {
 

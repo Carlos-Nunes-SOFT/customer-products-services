@@ -32,4 +32,16 @@ public class Product {
     public String getValue() {
         return value;
     }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 }
