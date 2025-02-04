@@ -5,5 +5,5 @@ import com.bankinter.services.sso.customer_products_and_services.ambar.domain.en
 
 public interface CardBuilder {
     Card build();
-    CardBuilder newCard(Long accountId, PropertyStatus propertyStatus, Long subProductId, Long productId, String nameInCard, String cardType, String cardNumber);
+    CardBuilder newCard(PropertyStatus propertyStatus, Long subProductId, Long productId, String nameInCard, String cardType, String cardNumber);
 }

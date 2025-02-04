@@ -13,7 +13,7 @@ public class CardMapper {
     public CardDetailsDto toDto(Card card){
         if(card == null)
             return null;
-        return new CardDetailsDto(card.getId(), card.getAccountId(), card.getCardNumber(), card.getCardType(),
+        return new CardDetailsDto(card.getId(), card.getCardNumber(), card.getCardType(),
         card.getNameInCard(), card.getProductId(), card.getSubProductId(), card.getPropertyStatus());
     }
 

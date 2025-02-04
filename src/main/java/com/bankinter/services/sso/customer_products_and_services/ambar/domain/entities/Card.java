@@ -12,7 +12,7 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long accountId; //foreign key
+    //private Long accountId; //foreign key //NOT NEEDED
 
     //private String accountNumber; DEPRECATED
 
@@ -32,8 +32,7 @@ public class Card {
 
     protected Card(){}
 
-    public Card(Long accountId, PropertyStatus propertyStatus, Long subProductId, Long productId, String nameInCard, String cardType, String cardNumber) {
-        this.accountId = accountId;
+    public Card(PropertyStatus propertyStatus, Long subProductId, Long productId, String nameInCard, String cardType, String cardNumber) {
         this.propertyStatus = propertyStatus;
         this.subProductId = subProductId;
         this.productId = productId;
@@ -44,14 +43,6 @@ public class Card {
 
     public Long getId() {
         return id;
-    }
-
-    public Long getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
     }
 
     @Nullable

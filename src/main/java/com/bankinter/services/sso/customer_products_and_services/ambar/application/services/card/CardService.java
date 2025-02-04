@@ -38,7 +38,7 @@ public class CardService {
                 .orElseThrow(() -> new NotFoundException("No such account with id: " + request.accountId));
 
         Card card = this.cardBuilder
-                .newCard(account.getId(), request.propertyStatus, request.subProductId, request.productId, request.nameInCard,
+                .newCard(request.propertyStatus, request.subProductId, request.productId, request.nameInCard,
                         request.cardType, request.cardNumber)
                 .build();
 

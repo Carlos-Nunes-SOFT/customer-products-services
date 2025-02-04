@@ -5,7 +5,7 @@ import com.bankinter.services.sso.customer_products_and_services.ambar.domain.en
 public class CardDetailsDto {
     private Long id;
 
-    private Long accountId;
+    //private Long accountId; NOT NECCESSARY
 
     //private String accountNumber; DEPRECATED
 
@@ -21,10 +21,9 @@ public class CardDetailsDto {
 
     private PropertyStatus propertyStatus;
 
-    public CardDetailsDto(Long id, Long accountId, String cardNumber, String cardType, String nameInCard,
+    public CardDetailsDto(Long id, String cardNumber, String cardType, String nameInCard,
                           Long productId, Long subProductId, PropertyStatus propertyStatus) {
         this.id = id;
-        this.accountId = accountId;
         this.cardNumber = cardNumber;
         this.cardType = cardType;
         this.nameInCard = nameInCard;
@@ -43,10 +42,6 @@ public class CardDetailsDto {
 
     public Long getSubProductId() {
         return subProductId;
-    }
-
-    public Long getAccountId() {
-        return accountId;
     }
 
     public String getNameInCard() {
