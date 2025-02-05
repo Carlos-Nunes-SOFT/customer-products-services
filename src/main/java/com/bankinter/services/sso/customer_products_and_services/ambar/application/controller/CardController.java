@@ -19,7 +19,7 @@ import java.util.List;
 
 @RestController
 @Validated
-@Tag(name = "cards", description = "the cards API")
+@Tag(name = "cards", description = "This API is responsible for managing cards.")
 @RequestMapping("/api/v1/card")
 public class CardController {
 

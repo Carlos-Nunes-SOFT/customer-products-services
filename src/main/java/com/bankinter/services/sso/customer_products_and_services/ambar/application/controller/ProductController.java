@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Validated
-@Tag(name = "products", description = "the products API")
+@Tag(name = "products", description = "This API is responsible for managing products.")
 @RequestMapping("/api/v1/products")
 public class ProductController {
 }

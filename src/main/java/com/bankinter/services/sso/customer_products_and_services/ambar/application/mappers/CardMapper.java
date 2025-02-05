@@ -16,10 +16,4 @@ public class CardMapper {
         return new CardDetailsDto(card.getId(), card.getCardNumber(), card.getCardType(),
         card.getNameInCard(), card.getProductId(), card.getSubProductId(), card.getPropertyStatus());
     }
-
-    public List<CardDetailsDto> toDtoList(List<Card> cards){
-        return cards.stream()
-                .map(this::toDto)
-                .collect(Collectors.toList());
-    }
 }

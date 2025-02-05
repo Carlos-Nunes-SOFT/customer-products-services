@@ -18,7 +18,7 @@ import java.util.List;
 
 @RestController
 @Validated
-@Tag(name = "balances", description = "the balances API")
+@Tag(name = "balances", description = "This API is responsible for managing balances.")
 @RequestMapping("/api/v1/balance")
 public class BalanceController {
 
